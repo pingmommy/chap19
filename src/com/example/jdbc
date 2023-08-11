@@ -1,0 +1,39 @@
+
+
+jdbc (Java DateBase Connectivity )드라이버 연결 
+
+1. 자바를 데이터베이스와 연동할 때
+ 프로젝트에서 buildpath -> configue buildpath -> libraries -> add External Jars -> 해당 드라이버 삽입
+
+
+2. 이클립스에서 오라클데이터베이스를 자바와 연동할 때
+ window ->showview -> other -> database Management -> 
+ perspective에 dataSourceExplorer 가 생김. -> databaseconnection ->new -> oracle 
+ 
+ -> 창이 뜨는데  name은 프로파일 user -> 또 창이 뜬다. -> driver 설정 -> jdbc driver 없으면 
+ -> drivers 옆에 작은 아이콘(new driver definition) 클릭 -> oracle thin driver 선택 
+ -> 오류 나면 jdbc 라이브러리가 없어서 그런 것이니 ojdbc8 jar파일 추가 리눅스((/opt/instantclient_21_1/ojdbc8.jar )) 
+                                                      윈도우(C:\opt\oracle\product\21c\dbhomeXE\jdbc\lib)
+ ->properties에서 jdbc:oracle:thin:@host:1521:xe , databasename: xe로 수정 
+ 
+ ->new connection profile 의 general에서 
+ 
+   database instance service name : xe 
+   connection url : jdbc:oracle:thin:@host:1521:xe
+   host : host(ip address) 
+   username : username(scott)
+   password : tiger
+   
+ -> 위  작업을 마치면 좌측 오픈 퍼스펙티브에 datasourceexplorer에 
+database connentions에 scott 관련된 폴더가 생긴다.  
+
+->상단의 connection profile에서 type: oracle_11 Name: scott database: xe 
+로설정하고 쿼리문 작성
+
+ojdbc는 oracle jdbc라이브러리
+
+mysql 라이브러리는 따로 있다. 
+
+3. 이클립스에서 mysql 데이터베이스를 자바와 연동할 때(jdbc 라이브러리 사용)
+
+빌드패스에 라이브러리 추가 
